@@ -1,0 +1,217 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "role": "admin",
+      "name": "System Admin",
+      "email": "admin@baprogram.com",
+      "passwordHash": "$2a$10$Ubswv6q5xu06HhcFoFFhluZLMEh2peOid5ZlTTRqo1G.xcgRJz4/6",
+      "isApproved": true,
+      "createdAt": "2026-01-16T10:19:03.167Z"
+    },
+    {
+      "id": 2,
+      "role": "supervisor",
+      "name": "mubasher",
+      "email": "mubasher@yopmail.com",
+      "cnicNumber": "32132131231231",
+      "city": "karachi",
+      "passwordHash": "$2a$10$/s98ufg4aaC1MfSiqnnw1ewThk0AhITJXfoPk06lCKd6xs8TX1FPi",
+      "isApproved": true,
+      "createdAt": "2026-01-16T10:39:52.182Z"
+    },
+    {
+      "id": 3,
+      "name": "testuser",
+      "email": "testuser@yopmail.com",
+      "role": "employee",
+      "city": "Karachi",
+      "employeeCnic": "12345-1234567-1",
+      "location": "Gulshan",
+      "isApproved": true,
+      "passwordHash": "$2a$10$Ti8iDGniFcYf5bf2gzVqCeIMSbPRB//NE8xdzSl.c16J/J2RF61H2",
+      "createdAt": "2026-02-04T11:18:12.301Z"
+    }
+  ],
+  "cities": [
+    {
+      "id": 1,
+      "name": "Lahore"
+    },
+    {
+      "id": 2,
+      "name": "karachi"
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "martName": "Imtiaz",
+      "area": "Askari 11",
+      "cityId": 1,
+      "cityName": "Lahore",
+      "lat": 80.75498,
+      "lng": 67.543543,
+      "createdAt": "2026-01-19T06:11:30.742Z"
+    },
+    {
+      "id": 2,
+      "martName": "grace super market",
+      "area": "airport",
+      "cityId": 2,
+      "cityName": "karachi",
+      "lat": 67,
+      "lng": 65,
+      "createdAt": "2026-02-02T11:31:38.185Z"
+    }
+  ],
+  "products": [
+    {
+      "id": "001",
+      "name": "Ultra Rich",
+      "description": "Mezan Ultra Rich Tea",
+      "brandName": "ULTRA RICH",
+      "quantity": "1000",
+      "weight": "200 GRAM",
+      "createdAt": "2026-01-20T06:48:32.624Z"
+    },
+    {
+      "id": "1",
+      "name": "Mezan Danedar",
+      "description": "tea",
+      "brandName": "Danedar",
+      "quantity": "100",
+      "weight": "500",
+      "createdAt": "2026-02-04T11:10:32.396Z"
+    }
+  ],
+  "journeyPlans": [
+    {
+      "id": 1,
+      "supervisorId": 2,
+      "periodType": "monthly",
+      "startDate": "2026-02-02",
+      "endDate": "2026-03-03",
+      "days": {
+        "2026-02-02": [
+          "1"
+        ],
+        "2026-02-03": [
+          "1"
+        ],
+        "2026-02-04": [
+          "1"
+        ],
+        "2026-02-05": [
+          "1"
+        ],
+        "2026-02-06": [
+          "1"
+        ],
+        "2026-02-07": [
+          "1"
+        ],
+        "2026-02-08": [
+          "1"
+        ],
+        "2026-02-09": [
+          "1"
+        ],
+        "2026-02-10": [
+          "1"
+        ],
+        "2026-02-11": [
+          "1"
+        ],
+        "2026-02-12": [
+          "1"
+        ],
+        "2026-02-13": [
+          "1"
+        ],
+        "2026-02-14": [
+          "1"
+        ],
+        "2026-02-15": [
+          "1"
+        ],
+        "2026-02-16": [
+          "1"
+        ],
+        "2026-02-17": [
+          "1"
+        ],
+        "2026-02-18": [
+          "1"
+        ],
+        "2026-02-19": [
+          "1"
+        ],
+        "2026-02-20": [
+          "1"
+        ],
+        "2026-02-21": [
+          "1"
+        ],
+        "2026-02-22": [
+          "1"
+        ],
+        "2026-02-23": [
+          "1"
+        ],
+        "2026-02-24": [
+          "1"
+        ],
+        "2026-02-25": [
+          "1"
+        ],
+        "2026-02-26": [
+          "1"
+        ],
+        "2026-02-27": [
+          "1"
+        ],
+        "2026-02-28": [
+          "1"
+        ],
+        "2026-03-01": [
+          "1"
+        ],
+        "2026-03-02": [
+          "1"
+        ],
+        "2026-03-03": [
+          "1"
+        ]
+      },
+      "locationsSnapshot": {
+        "1": {
+          "id": "1",
+          "lat": 80.75498,
+          "lng": 67.543543
+        }
+      },
+      "daysCount": 30,
+      "selectedDaysCount": 30,
+      "copiedFrom": null,
+      "createdAt": "2026-01-31T10:41:25.643Z",
+      "updatedAt": "2026-02-02T10:52:35.770Z"
+    }
+  ],
+  "sales": [
+    {
+      "id": 1,
+      "employeeId": 3,
+      "employeeName": "testuser",
+      "locationId": 2,
+      "locationName": "grace super market - airport",
+      "productId": "1",
+      "productName": "Mezan Danedar",
+      "productWeight": 500,
+      "quantity": 5,
+      "totalWeight": 2500,
+      "saleDate": "2026-02-04",
+      "createdAt": "2026-02-04T11:20:00.010Z"
+    }
+  ]
+}
