@@ -9,7 +9,30 @@ router.get('/', (req, res) => {
   let list = db.locations || [];
   if (cityId) list = list.filter((x) => String(x.cityId) === String(cityId));
   if (city) list = list.filter((x) => String(x.cityName || '').toLowerCase() === String(city).toLowerCase());
-  return res.json({ isSuccess: true, message: 'OK', result: list });
+
+  // Backward-compatible computed fields used by older UI code
+  const enriched = list.map((x) => {
+    const martName = x.martName ?? x.name ?? '';
+    const area = x.area ?? '';
+    const cityName = x.cityName ?? x.city ?? '';
+    const label = [martName, area, cityName].filter(Boolean).join(' • ');
+    const radiusMeters =
+      typeof x.allowRadiusMeters === 'number'
+        ? x.allowRadiusMeters
+        : typeof x.radiusMeters === 'number'
+          ? x.radiusMeters
+          : undefined;
+
+    return {
+      ...x,
+      // common aliases
+      name: x.name ?? label,
+      city: x.city ?? cityName,
+      radiusMeters: x.radiusMeters ?? radiusMeters,
+    };
+  });
+
+  return res.json({ isSuccess: true, message: 'OK', result: enriched });
 });
 
 // Public: get location by id
@@ -18,7 +41,28 @@ router.get('/:id', (req, res) => {
   const db = readDb();
   const loc = (db.locations || []).find((x) => String(x.id) === id);
   if (!loc) return res.status(404).json({ isSuccess: false, message: 'Location not found' });
-  return res.json({ isSuccess: true, message: 'OK', result: loc });
+
+  const martName = loc.martName ?? loc.name ?? '';
+  const area = loc.area ?? '';
+  const cityName = loc.cityName ?? loc.city ?? '';
+  const label = [martName, area, cityName].filter(Boolean).join(' • ');
+  const radiusMeters =
+    typeof loc.allowRadiusMeters === 'number'
+      ? loc.allowRadiusMeters
+      : typeof loc.radiusMeters === 'number'
+        ? loc.radiusMeters
+        : undefined;
+
+  return res.json({
+    isSuccess: true,
+    message: 'OK',
+    result: {
+      ...loc,
+      name: loc.name ?? label,
+      city: loc.city ?? cityName,
+      radiusMeters: loc.radiusMeters ?? radiusMeters,
+    },
+  });
 });
 
 // Admin adds locations
